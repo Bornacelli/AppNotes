@@ -31,10 +31,45 @@ const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Juli
 let fullMonth = monthNames[date.getMonth()];
 console.log(fullMonth + ' ' + year);
 
-const days = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
-let dayOfWeek = days[date.getDay()];
-console.log(dayOfWeek);
+var days = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+var day2 = days[date.getDay()];
+console.log(day2);
 
-window.onbeforeunload = function() {
-    return true;
-};
+// window.onbeforeunload = function() {
+//     return true;
+// };
+
+let tdoo = {"header" : textarea.value, "body" : input.value , "category": input2.value, "Dates": day2+ '' + fullMonth + '' + year}
+
+save_btn.addEventListener("click", () =>{
+    let tdoo = {"header" : textarea.value, "body" : input.value , "category": input2.value, "Dates": day2+ '' + fullMonth + '' + year}
+    let appendNote = document.createElement("div");
+    notepad.appendChild(appendNote);
+    console.log(message_text);
+    setTimeout (() =>{
+        console.clear();
+    },1000)
+    setTimeout (()=> {
+        localStorage.setTimeout("storage", JSON.stringify(tdoo))
+        var retrieveData= JSON.parse(localStorage.getItem("storage"));
+        console.log(retrieveData);
+        appendNote.innerHTML =  <div class="note-content">
+        <div class="notes">
+            <div class="note-title" id="ntx">${tdoo.body}</div>
+            <div class="note-pfx">
+                <p class="note-sub">${tdoo.header}</p>
+            </div>
+            <div class="c5">
+                <div class="category">
+                    <div class="cat" id="category">${tdoo.category}</div>
+                </div>
+                <div class="date-created">
+                    <div class="date" id="date">{tdoo.Dates}</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    },2000)
+    
+})

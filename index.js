@@ -50,10 +50,10 @@ save_btn.addEventListener("click", () =>{
         console.clear();
     },1000)
     setTimeout (()=> {
-        localStorage.setTimeout("storage", JSON.stringify(tdoo))
+        localStorage.setItem("storage", JSON.stringify(tdoo))
         var retrieveData= JSON.parse(localStorage.getItem("storage"));
         console.log(retrieveData);
-        appendNote.innerHTML =  <div class="note-content">
+        appendNote.innerHTML=`<div class="note-content">
         <div class="notes">
             <div class="note-title" id="ntx">${tdoo.body}</div>
             <div class="note-pfx">
@@ -67,10 +67,85 @@ save_btn.addEventListener("click", () =>{
                     <div class="date" id="date">{tdoo.Dates}</div>
                 </div>
             </div>
-            
+               <div class="tweet">
+                  <div class="tweet_content">
+                  <a href="https://twitter.com/intent/tweet?url=${tdoo.Body + ' ' + tdoo.Header}" rel="noopener" class="tweet_btn">Tweet <i class="fa-brands fa-twitter"></i></a>
+                  </div>
+            </div>    
         </div>
-    </div>
+    </div>`
     },2000)
-    
-})
-paula 
+});
+window.addEventListener("load", () => {
+    textarea.value =tdoo.Header;
+    input.value =tdoo.Body;
+    input2.value =tdoo.category;
+    appendNote.innerHTML =`<div class="note-content">
+        <div class="notes">
+            <div class="note-title" id="ntx">${tdoo.body}</div>
+            <div class="note-pfx">
+                <p class="note-sub">${tdoo.header}</p>
+            </div>
+            <div class="c5">
+                <div class="category">
+                    <div class="cat" id="category">${tdoo.category}</div>
+                </div>
+                <div class="date-created">
+                    <div class="date" id="date">{tdoo.Dates}</div>
+                </div>
+            </div>
+               <div class="tweet">
+                  <div class="tweet_content">
+                  <a href="https://twitter.com/intent/tweet?url=${tdoo.Body + ' ' + tdoo.Header}" rel="noopener" class="tweet_btn">Tweet <i class="fa-brands fa-twitter"></i></a>
+                  </div>
+            </div>    
+        </div>
+    </div>`
+});
+const add_color = (cname) => {
+    const colors = ["blue", "red", "green", "purple"];
+    colors.filter(c => c !== cname).map(c => textarea.classList.remove(c));
+    textarea.classList.add(cname);
+  };
+  color_red.addEventListener("click", function(event) {
+      console.log(event.target);
+      add_color("red");
+  })
+  color_blue.addEventListener("click", function(event) {
+      console.log(event.target);
+      add_color("blue");
+  })
+  color_green.addEventListener("click", function(event) {
+      console.log(event.target);
+      add_color("green");
+  })
+  color_purple.addEventListener("click", function(event) {
+      console.log(event.target);
+      add_color("purple");
+  })
+  category1.addEventListener("click", (e) => {
+      console.log(e.target);
+      document.getElementById("category").innerHTML = `${cat1}`
+      input2.value = `${cat1}`;
+  });
+  category2.addEventListener("click", (e) => {
+      console.log(e.target);
+      document.getElementById("category").innerHTML = `${cat2}`
+      input2.value = `${cat2}`;
+  });
+  category3.addEventListener("click", (e) => {
+      console.log(e.target);
+      document.getElementById("category").innerHTML = `${cat3}`
+      input2.value = `${cat3}`;
+  });
+  // categories button to change the note category
+  
+  add_btn.addEventListener("click", () => {
+      document.querySelector(".container").style.display = "block";
+      document.querySelector(".wrapper").style.display = "none"; //linking to the write note page
+  });
+  document.getElementById("return").addEventListener("click", function() {
+      document.querySelector(".container").style.display = "none";
+      document.querySelector(".wrapper").style.display = "block"; //returning back to the main note page
+  });
+

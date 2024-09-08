@@ -19,11 +19,13 @@
 }
 
 body {
+
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: var(--main-bg);
+    /* background: var(--main-bg); */
+    background-image: url('imagenes/fondo.png');
 }
 
 .wrapper {
@@ -352,3 +354,141 @@ body {
 .wrapper .content .notepad .h .notes {
     background-color: #222833;
  }
+
+ @media (max-width: 768px) {
+    .wrapper {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .wrapper .content .title {
+        font-size: 1.5rem;
+    }
+
+    .wrapper .content .eInput input {
+        height: 40px;
+        padding-left: 40px;
+    }
+
+    .wrapper .content .notepad {
+        flex-direction: column;
+        max-height: none;
+    }
+
+    .wrapper .content .notepad .note-content .notes {
+        width: 100%;
+        padding: 20px;
+        margin: 10px 0;
+    }
+
+    .wrapper .content .notepad .note-content .notes .note-title {
+        font-size: 1.1rem;
+    }
+
+    .wrapper .content .notepad .note-content .notes .note-pfx .note-sub {
+        font-size: 0.9rem;
+    }
+
+    .wrapper .content .notepad .note-content .notes .c5 .category .cat {
+        font-size: 0.9rem;
+        padding: 6px 15px;
+    }
+
+    .wrapper .content .notepad .note-content .notes .c5 .date-created .date {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .container .content .eInput input {
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
+    .container .content .input textarea {
+        height: 200px;
+    }
+
+    .container .content .select .select_content .c1 .categories {
+        font-size: 0.9rem;
+    }
+
+    .container .content .select .select_content .add_cat .cat_input input {
+        height: 40px;
+    }
+
+    .container .content .select .select_content .colors .color-tab .color_set {
+        width: 40px;
+        height: 40px;
+    }
+
+    #text-field {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .wrapper .content .title {
+        font-size: 1.2rem;
+    }
+
+    .wrapper .content .eInput input {
+        height: 35px;
+        padding-left: 30px;
+    }
+
+    .wrapper .content .notepad .note-content .notes {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .wrapper .content .notepad .note-content .notes .note-title {
+        font-size: 1rem;
+    }
+
+    .wrapper .content .notepad .note-content .notes .note-pfx .note-sub {
+        font-size: 0.8rem;
+    }
+
+    .wrapper .content .notepad .note-content .notes .c5 .category .cat {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .wrapper .content .notepad .note-content .notes .c5 .date-created .date {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .container .content .eInput input {
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .container .content .input textarea {
+        height: 150px;
+    }
+
+    .container .content .select .select_content .c1 .categories {
+        font-size: 0.8rem;
+    }
+
+    .container .content .select .select_content .add_cat .cat_input input {
+        height: 35px;
+    }
+
+    .container .content .select .select_content .colors .color-tab .color_set {
+        width: 30px;
+        height: 30px;
+    }
+}
